@@ -141,7 +141,7 @@ public class Lab1 {
         out.println(state);
         out.println(zipcode);
         out.println(email);
-        out.println(phoneNum);
+        out.print(phoneNum);
         
         out.close();  // be sure you close your streams when done!!
 	
