@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab2;
+package lab3;
 
 import java.io.IOException;
 
@@ -11,9 +11,22 @@ import java.io.IOException;
  * @author Stuart - HP AMD 10
  */
 public class Startup {
+    
+    enum ContactFields {
+        FIRST_NAME,
+        LAST_NAME,
+        ADDRESS,
+        CITY,
+        STATE,
+        ZIP,
+        EMAIL,
+        PHONE_NUM;
+    }
+    
     public static void main(String[] args) {
         
         int desiredRec = 2;
+        int desiredField = ContactFields.CITY.ordinal();
         
         String fileRec = null;
         
@@ -25,19 +38,8 @@ public class Startup {
         }
         TxtDecoder decoder = new TxtDecoder();
         String[] tokens = decoder.decodeInputString(fileRec);
-        Contact2 contact = new Contact2(tokens);
-        displayContactInfo(contact);  
-    }
-    
-    private static void displayContactInfo(Contact2 contact) {
-        System.out.println(contact.getfName() + " " 
-                + contact.getlName());
-        System.out.println(contact.getAddress());
-        System.out.println(contact.getCity() + ", " 
-                + contact.getState() + " "
-                + contact.getZipcode());
-        System.out.println(contact.getEmail());
-        System.out.println(contact.getPhoneNum() + "\n");
+        
+        System.out.println("The requested data is: " + tokens[desiredField]);
     }
     
 }
