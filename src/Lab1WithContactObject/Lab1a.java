@@ -33,14 +33,7 @@ public class Lab1a {
                     line = in.readLine();  // strips out any carriage return chars
                     Contact1 contact = new Contact1(contactFields);
                     //System.out.println(contact.toString());
-                    System.out.println(contact.getfName() + " " 
-                            + contact.getlName());
-                    System.out.println(contact.getAddress());
-                    System.out.println(contact.getCity() + ", " 
-                            + contact.getState() + " "
-                            + contact.getZipcode());
-                    System.out.println(contact.getEmail());
-                    System.out.println(contact.getPhoneNum() + "\n");
+                    displayContactInfo(contact);
                 }
 
             } catch (IOException ioe) {
@@ -55,7 +48,7 @@ public class Lab1a {
             System.out.println("File not found: test.txt");
         }
 
-        System.out.println("-------------------------------------------");
+        System.out.println("-------------------------------------------\n");
         
         int recCntr = 0;
         int desiredRec = 2;
@@ -81,14 +74,7 @@ public class Lab1a {
                         line = in.readLine();  // strips out any carriage return chars
                         Contact1 contact = new Contact1(contactFields);
                         //System.out.println(contact.toString());
-                        System.out.println(contact.getfName() + " " 
-                                + contact.getlName());
-                        System.out.println(contact.getAddress());
-                        System.out.println(contact.getCity() + ", " 
-                                + contact.getState() + " "
-                                + contact.getZipcode());
-                        System.out.println(contact.getEmail());
-                        System.out.println(contact.getPhoneNum() + "\n");
+                        displayContactInfo(contact);
                     }
                     line = in.readLine();  // strips out any carriage return chars
                 }
@@ -105,97 +91,73 @@ public class Lab1a {
             System.out.println("File not found: test.txt");
         }
         
-//        System.out.println("-------------------------------------------");
-//        
-//        boolean append = true;   
-//        
-//        PrintWriter out = new PrintWriter(
-//                                new BufferedWriter(
-//				new FileWriter(data, append)));
-//        
-//        fName = "It";
-//        lName = "Works";
-//        address = "1234 Washington Blvd";
-//        city = "Pewaukee";
-//        state = "WI";
-//        zipcode = "12345";
-//        email = "ItWorks@it.Hard";
-//        phoneNum = "414-444-5555";
-//        
-//        out.print("\n");
-//        out.println(fName);
-//        out.println(lName);
-//        out.println(address);
-//        out.println(city);
-//        out.println(state);
-//        out.println(zipcode);
-//        out.println(email);
-//        out.print(phoneNum);
-//        
-//        out.close();  // be sure you close your streams when done!!
-//	
-//	System.out.println("Wrote file to: " + data.getAbsolutePath());  
-//        
-//        recCntr = 0;
-//        fieldCntr = 0;
-//        
-//        if (data.exists()) {
-//            BufferedReader in = null;
-//            try {
-//                in = new BufferedReader(new FileReader(data));
-//                String line = in.readLine();
-//                while (line != null) {
-//                    fieldCntr++;
-//                    switch (fieldCntr) {
-//                        case 1:
-//                            recCntr++;
-//                            fName = line;
-//                            break;
-//                        case 2:
-//                            lName = line;
-//                            break;
-//                        case 3:
-//                            address = line;
-//                            break;
-//                        case 4:
-//                            city = line;
-//                            break;
-//                        case 5:
-//                            state = line;
-//                            break;
-//                        case 6:
-//                            zipcode = line;
-//                            break;
-//                        case 7:
-//                            email = line;
-//                            break;
-//                        case 8:
-//                            phoneNum = line;
-//                            System.out.println(fName + " " + lName);
-//                            System.out.println(address);
-//                            System.out.println(city + ", " + state + " "
-//                                    + zipcode);
-//                            System.out.println(email);
-//                            System.out.println(phoneNum + "\n");
-//                            fieldCntr = 0;
-//                            break;
-//                    }
-////                    System.out.println(line);
-//                    line = in.readLine();  // strips out any carriage return chars
-//                }
-//
-//            } catch (IOException ioe) {
-//                System.out.println("Houston, we have a problem! reading this file");
-//            } finally {
-//                try {
-//                    in.close();
-//                } catch (Exception e) {
-//                }
-//            }
-//        } else {
-//            System.out.println("File not found: test.txt");
-//        }
-//
-//    }
+        System.out.println("-------------------------------------------\n");
+        
+        boolean append = true;   
+        
+        PrintWriter out = new PrintWriter(
+                                new BufferedWriter(
+				new FileWriter(data, append)));
+        
+        Contact1 newContact = new Contact1();
+        
+        newContact.setfName("It");
+        newContact.setlName("Works");
+        newContact.setAddress("1234 Washington Blvd");
+        newContact.setCity("Pewaukee");
+        newContact.setState("WI");
+        newContact.setZipcode("12345");
+        newContact.setEmail("ItWorks@it.Hard");
+        newContact.setPhoneNum("414-444-5555");
+        
+        //out.print("");
+        out.println(newContact.toString("|"));
+        
+        out.close();  // be sure you close your streams when done!!
+	
+	System.out.println("Wrote file to: " + data.getAbsolutePath());  
+        
+        if (data.exists()) {
+            BufferedReader in = null;
+            try {
+                in = new BufferedReader(new FileReader(data));
+                String line = in.readLine();
+                while (line != null) {
+                    StringTokenizer lineST = new StringTokenizer(line, "|");
+                    String[] contactFields = new String[lineST.countTokens()];
+                    //System.out.println(lineST.countTokens());
+                    int i = 0;
+                    while (lineST.hasMoreTokens()) {
+                        contactFields[i] = lineST.nextToken();
+                        i++;
+                    }
+                    line = in.readLine();  // strips out any carriage return chars
+                    Contact1 contact = new Contact1(contactFields);
+                    //System.out.println(contact.toString());
+                    displayContactInfo(contact);
+                }
+
+            } catch (IOException ioe) {
+                System.out.println("Houston, we have a problem! reading this file");
+            } finally {
+                try {
+                    in.close();
+                } catch (Exception e) {
+                }
+            }
+        } else {
+            System.out.println("File not found: test.txt");
+        }
+    }
+    
+    public static void displayContactInfo(Contact1 contact) {
+        System.out.println(contact.getfName() + " " 
+                + contact.getlName());
+        System.out.println(contact.getAddress());
+        System.out.println(contact.getCity() + ", " 
+                + contact.getState() + " "
+                + contact.getZipcode());
+        System.out.println(contact.getEmail());
+        System.out.println(contact.getPhoneNum() + "\n");
     }
 }

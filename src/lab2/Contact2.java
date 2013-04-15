@@ -1,6 +1,11 @@
 package lab2;
 
-public class Contact {
+import Lab1WithContactObject.*;
+import lab2.*;
+
+public class Contact2 {
+    
+    private static final int CONSTRUCTOR_ARRAY_SIZE = 8;
     
     private String fName = null;
     private String lName = null;
@@ -10,6 +15,36 @@ public class Contact {
     private String zipcode = null;
     private String email = null;
     private String phoneNum = null;
+    
+    public Contact2() {
+        fName = null;
+        lName = null;
+        address = null;
+        city = null;
+        state = null;
+        zipcode = null;
+        email = null;
+        phoneNum = null;
+    }
+    
+    public Contact2(String[] contactFields) {
+        if (contactFields.length == CONSTRUCTOR_ARRAY_SIZE) {
+            setfName(contactFields[0]);
+            setlName(contactFields[1]);
+            setAddress(contactFields[2]);
+            setCity(contactFields[3]);
+            setState(contactFields[4]);
+            setZipcode(contactFields[5]);
+            setEmail(contactFields[6]);
+            setPhoneNum(contactFields[7]);
+        }
+        else {
+             InstantiationException invalidArrayInContactConstructor =
+                     new  InstantiationException("Incorrect array length in "
+                     + "Contact constructor (" 
+                     + contactFields.length + ")");
+        }
+    }
 
     public String getfName() {
         return fName;
@@ -85,6 +120,18 @@ public class Contact {
                 + ", zipcode: " + zipcode
                 + ", email: " + email
                 + ", phoneNum: " + phoneNum;
+        return str;
+    }
+    
+    public String toString(String delimiter) {
+        String str = fName + delimiter
+                + lName + delimiter
+                + address + delimiter
+                + city + delimiter
+                + state + delimiter
+                + zipcode + delimiter
+                + email + delimiter
+                + phoneNum;
         return str;
     }
     

@@ -122,4 +122,16 @@ public class Contact1 {
         return str;
     }
     
+    public String toString(String delimiter) {
+        String str = fName + delimiter
+                + lName + delimiter
+                + address + delimiter
+                + city + delimiter
+                + state + delimiter
+                + zipcode + delimiter
+                + email + delimiter
+                + phoneNum;
+        return str;
+    }
+    
 }
