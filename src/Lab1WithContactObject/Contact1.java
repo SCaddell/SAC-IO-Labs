@@ -108,6 +108,36 @@ public class Contact1 {
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + (this.fName != null ? this.fName.hashCode() : 0);
+        hash = 29 * hash + (this.lName != null ? this.lName.hashCode() : 0);
+        hash = 29 * hash + (this.email != null ? this.email.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Contact1 other = (Contact1) obj;
+        if ((this.fName == null) ? (other.fName != null) : !this.fName.equals(other.fName)) {
+            return false;
+        }
+        if ((this.lName == null) ? (other.lName != null) : !this.lName.equals(other.lName)) {
+            return false;
+        }
+        if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
+            return false;
+        }
+        return true;
+    }
     
     @Override
     public String toString() {

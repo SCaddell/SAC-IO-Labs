@@ -1,6 +1,5 @@
 package Lab1WithContactObject;
 
-import lab1.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
