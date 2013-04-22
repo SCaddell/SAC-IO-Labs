@@ -8,7 +8,7 @@ package lab4;
  *
  * @author Stuart - HP AMD 10
  */
-public interface FileReaderStrategy implements FileServiceStrategy() {
+public interface FileReaderStrategy  {
     
     T readAll()
     

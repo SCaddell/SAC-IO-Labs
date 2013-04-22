@@ -39,16 +39,25 @@ public class CsvCommaFormat implements FormatStrategy<List<LinkedHashMap<String,
      * be stored.
      * @return the formatted data.
      */
+    @Override
     public String encode(List<LinkedHashMap<String, String>> dataFromSrc) {
+        
+        if (dataFromSrc == null  || dataFromSrc.isEmpty()) { 
+            throw new IllegalArgumentException("A null or empty list was passed"
+                    + " to be encoded.");
+        }
         StringBuilder formattedData = new StringBuilder();
 
         boolean headerNotSet = true;
-        boolean hasEmbeddedComma = false;
+        boolean hasEmbeddedComma;
         Set<String> fieldNames = null;
+        
+        // if file to have a header, get keySet from 1st row of HashMap 
         if (hasHeader) {
             fieldNames = dataFromSrc.get(0).keySet();
         }
 
+        // 
         for (int recordNo = 0; recordNo < dataFromSrc.size(); recordNo++) {
             if (fieldNames != null && headerNotSet) {
                 for (String fieldName : fieldNames) {

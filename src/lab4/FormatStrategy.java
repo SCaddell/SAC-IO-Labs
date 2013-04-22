@@ -12,6 +12,6 @@ public interface FormatStrategy<T,E> {
 
     T decode(E dataFromFile);
 
-    String encode(T dataFromFile);
+    String encode(T dataToFile);
     
 }
