@@ -19,7 +19,7 @@ public interface FileWriterStrategy<T> {
     
     FormatStrategy getFormatter();
 
-    //void writeFile<T> throws IOException;
+    void writeFile(T dataOut) throws IOException;
 
     void setFilePath(String filePath);
 

@@ -1,13 +1,15 @@
 package lab4;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
  *
  * @author Stuart Caddell, scaddell@my,wctc.edu
  */
-public class TextFileWriter implements FileWriterStrategy {
+public class TextFileWriter implements 
+        FileWriterStrategy<List<LinkedHashMap<String, String>>> {
 
     @Override
     public String getFilePath() {
@@ -20,7 +22,8 @@ public class TextFileWriter implements FileWriterStrategy {
     }
 
     //@Override
-    public void writeFile(String textOut) throws IOException {
+    public void writeFile(List<LinkedHashMap<String, String>> textOut) 
+            throws IOException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
