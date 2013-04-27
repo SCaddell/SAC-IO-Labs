@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -184,49 +183,49 @@ public class CsvCommaFormat implements FormatStrategy<List<LinkedHashMap<String,
         return "Csv Comma Formatter";
     }
     
-    public static void main(String[] args) {
-        FormatStrategy testFormat = new CsvCommaFormat(false);
-        List<LinkedHashMap<String, String>> recordMap = 
-                new ArrayList<LinkedHashMap<String, String>>();
-        LinkedHashMap<String, String> mapField1 = new LinkedHashMap<String, String>();
-        mapField1.put("field1", "field1a");
-        mapField1.put("field2", "field2a");
-        mapField1.put("field3", "field3a");
-        mapField1.put("field,4", "field4a");
-        
-//        System.out.println(mapField1.values());
-//        System.out.println(mapField1);
-        
-        recordMap.add(mapField1);
-//        System.out.println(recordMap);
-        LinkedHashMap<String, String> mapField2 = new LinkedHashMap<String, String>();
-        mapField2.put("field1", "\"field1b\"");
-        mapField2.put("field2", "\"field2,b\"");
-        mapField2.put("field3", "field3b");
-        mapField2.put("field4", "field4b");
-        
-//        System.out.println(mapField2.values());
-//        System.out.println(mapField2);
-        
-        recordMap.add(mapField2);
-//        System.out.println(recordMap);
-        
-        LinkedHashMap<String, String> mapField3 = new LinkedHashMap<String, String>();
-        mapField3.put("field1", "field1c");
-        mapField3.put("field2", "field2c");
-        mapField3.put("field3", "field3,c");
-        mapField3.put("field4", "field4c");
-        
-//        System.out.println(mapField.values());
-//        System.out.println(mapField);
-        
-        recordMap.add(mapField3);
-//        System.out.println(recordMap);
-        
-        System.out.println("---------------------------------");
-        
-        String encoded = testFormat.encode(recordMap);
-        System.out.println(encoded);
+//    public static void main(String[] args) {
+//        FormatStrategy testFormat = new CsvCommaFormat(false);
+//        List<LinkedHashMap<String, String>> recordMap = 
+//                new ArrayList<LinkedHashMap<String, String>>();
+//        LinkedHashMap<String, String> mapField1 = new LinkedHashMap<String, String>();
+//        mapField1.put("field1", "field1a");
+//        mapField1.put("field2", "field2a");
+//        mapField1.put("field3", "field3a");
+//        mapField1.put("field,4", "field4a");
+//        
+////        System.out.println(mapField1.values());
+////        System.out.println(mapField1);
+//        
+//        recordMap.add(mapField1);
+////        System.out.println(recordMap);
+//        LinkedHashMap<String, String> mapField2 = new LinkedHashMap<String, String>();
+//        mapField2.put("field1", "\"field1b\"");
+//        mapField2.put("field2", "\"field2,b\"");
+//        mapField2.put("field3", "field3b");
+//        mapField2.put("field4", "field4b");
+//        
+////        System.out.println(mapField2.values());
+////        System.out.println(mapField2);
+//        
+//        recordMap.add(mapField2);
+////        System.out.println(recordMap);
+//        
+//        LinkedHashMap<String, String> mapField3 = new LinkedHashMap<String, String>();
+//        mapField3.put("field1", "field1c");
+//        mapField3.put("field2", "field2c");
+//        mapField3.put("field3", "field3,c");
+//        mapField3.put("field4", "field4c");
+//        
+////        System.out.println(mapField.values());
+////        System.out.println(mapField);
+//        
+//        recordMap.add(mapField3);
+////        System.out.println(recordMap);
+//        
+//        System.out.println("---------------------------------");
+//        
+//        String encoded = testFormat.encode(recordMap);
+//        System.out.println(encoded);
 //        recordMap.addAll(mapField);
 //        
 //        encode(List<LinkedHashMap<String, String>> dataFromSrc) {
@@ -234,4 +233,4 @@ public class CsvCommaFormat implements FormatStrategy<List<LinkedHashMap<String,
 //        testFormat.encode(testFormat);
     }
 
-}
+//}

@@ -4,13 +4,23 @@
  */
 package lab4;
 
+import java.io.IOException;
+
 /**
  *
  * @author Stuart - HP AMD 10
  */
-public interface FileReaderStrategy  {
+public interface FileReaderStrategy<T>  {
     
-    T readAll()
+    String getFilePath();
+
+    FormatStrategy getFormatter();
+
+    T readAllFile() throws IOException;
+
+    void setFilePath(String filePath) throws IOException;
+
+    void setFormatter(FormatStrategy formatter) throws Exception;
     
     
 }
