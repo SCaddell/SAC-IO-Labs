@@ -21,10 +21,10 @@ public interface FileWriterStrategy<T> {
 
     void writeFile(T dataOut) throws IOException;
 
-    void setFilePath(String filePath);
+    void setFilePath(String filePath) throws IOException;
 
     void setAppendIndicator(boolean appendIndicator);
     
-    void setFormatter(FormatStrategy formatter);
+    void setFormatter(FormatStrategy formatter) throws NullFormatterException;
     
 }

@@ -85,20 +85,20 @@ public class TextFileReader implements FileReaderStrategy
         }
     }
 
-    // For testing only...
-    public static void main(String[] args) throws IOException, Exception {
-        TextFileReader app = 
-                new TextFileReader("C:\\Temp\\TestCsv2.csv", 
-                new CsvCommaFormat(true));
+//    // For testing only...
+//    public static void main(String[] args) throws IOException, Exception {
 //        TextFileReader app = 
-//                new TextFileReader("src/custom_garage_format.txt", new CustomGarageFormat());
-
-        System.out.println("Reading and Decoding data ...");
-        
-        List<LinkedHashMap<String, String>> returnData =
-                app.readAllFile();
-        
-        System.out.println(returnData);            
-    }
+//                new TextFileReader("C:\\Temp\\TestCsv2.csv", 
+//                new CsvCommaFormat(true));
+////        TextFileReader app = 
+////                new TextFileReader("src/custom_garage_format.txt", new CustomGarageFormat());
+//
+//        System.out.println("Reading and Decoding data ...");
+//        
+//        List<LinkedHashMap<String, String>> returnData =
+//                app.readAllFile();
+//        
+//        System.out.println(returnData);            
+//    }
 
 }

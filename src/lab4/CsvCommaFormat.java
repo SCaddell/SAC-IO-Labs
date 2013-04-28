@@ -39,7 +39,7 @@ public class CsvCommaFormat implements FormatStrategy<List<LinkedHashMap<String,
      * @return the formatted data.
      */
     @Override
-    public String encode(List<LinkedHashMap<String, String>> dataFromSrc) {
+    public StringBuilder encode(List<LinkedHashMap<String, String>> dataFromSrc) {
         
         if (dataFromSrc == null  || dataFromSrc.isEmpty()) { 
             throw new IllegalArgumentException("A null or empty list was passed"
@@ -86,7 +86,7 @@ public class CsvCommaFormat implements FormatStrategy<List<LinkedHashMap<String,
 
         // Here's the CSV formatted data as a single String that can be
         // saved to a file.
-        return formattedData.toString();
+        return formattedData;
     }
     
     /**
